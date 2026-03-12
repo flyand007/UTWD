@@ -1,0 +1,91 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 6.2.4 effective-5.10 (swiftlang-6.2.4.1.4 clang-1700.6.4.2)
+// swift-module-flags: -target arm64-apple-ios13.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name UTWD
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface -formal-cxx-interoperability-mode=off -interface-compiler-version 6.2.4
+import ConfigCat
+import Foundation
+import Network
+import ObjectiveC
+import Swift
+import UIKit
+@_exported import UTWD
+import WebKit
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+import ObjectiveC.runtime
+@objc public enum UTWDStartType : Swift.Int {
+  case active
+  case unactive
+  case restart
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.Int)
+  #endif
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public enum UTWDRuntimeMode : Swift.Int {
+  case auto
+  case unity
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.Int)
+  #endif
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public typealias UTWDUnityTouchObjCBlock = @convention(block) (_ x: Swift.Double, _ y: Swift.Double, _ phase: Swift.Int) -> Swift.Void
+@objc @_inheritsConvenienceInitializers @objcMembers public class UTWDConfig : ObjectiveC.NSObject {
+  @objc public static var alpha: CoreFoundation.CGFloat
+  @objc public static var isOpenLog: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc public static var isNewUser: Swift.Bool
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc public static func setHostWindow(_ window: UIKit.UIWindow?)
+  #endif
+  @objc public static func handleEvent(_ event: UIKit.UIEvent)
+  @objc public static func enableEventForwarding()
+  @objc public static func setRuntimeMode(_ mode: UTWD.UTWDRuntimeMode)
+  @objc(setRemoteTestMode:) public static func setRemoteTestMode(_ enabled: Swift.Bool)
+  @discardableResult
+  @objc(setAllLogEnabled:identifier:) public static func setAllLogEnabled(_ enabled: Swift.Bool, identifier: Swift.String) -> Swift.Bool
+  @objc public static func getRuntimeMode() -> UTWD.UTWDRuntimeMode
+  @objc public static var unityTouchCallback: ((_ x: Swift.Double, _ y: Swift.Double, _ phase: Swift.Int) -> Swift.Void)?
+  @objc public static let unityTouchEventNotification: Foundation.Notification.Name
+  @objc(setUnityTouchBlock:) public static func setUnityTouchBlock(_ block: @escaping UTWD.UTWDUnityTouchObjCBlock)
+  @objc public static func clearUnityTouchBlock()
+  @objc public static func setUnityProtectedRects(_ rects: [Foundation.NSValue])
+  @objc public static func setUnityProtectedRects(json: Swift.String)
+  @objc public static func clearUnityProtectedRects()
+  @objc public static func startAd(type: UTWD.UTWDStartType)
+  @objc public static func adVersion() -> Swift.String
+  @objc public static func isAdOpen() -> Swift.Bool
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public protocol UTWDTouchControl {
+  @objc optional func isCanTouch() -> Swift.Bool
+  @objc optional func isTapGesture() -> Swift.Bool
+  @objc optional func invokeTapClick(sender: Swift.AnyObject, point: CoreFoundation.CGPoint)
+  @objc optional func getTouchScene() -> Swift.String
+}
+@objc @_Concurrency.MainActor @preconcurrency open class UTWDWindow : UIKit.UIWindow {
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic public init(frame: CoreFoundation.CGRect)
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_Concurrency.MainActor @preconcurrency @objc required dynamic public init?(coder: Foundation.NSCoder)
+  #endif
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic open func addSubview(_ view: UIKit.UIView)
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic open func sendEvent(_ event: UIKit.UIEvent)
+  @objc deinit
+}
+extension UTWD.UTWDStartType : Swift.Equatable {}
+extension UTWD.UTWDStartType : Swift.Hashable {}
+extension UTWD.UTWDStartType : Swift.RawRepresentable {}
+extension UTWD.UTWDRuntimeMode : Swift.Equatable {}
+extension UTWD.UTWDRuntimeMode : Swift.Hashable {}
+extension UTWD.UTWDRuntimeMode : Swift.RawRepresentable {}

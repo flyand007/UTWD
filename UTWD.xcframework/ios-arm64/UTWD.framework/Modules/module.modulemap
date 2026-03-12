@@ -1,0 +1,11 @@
+framework module UTWD {
+  umbrella header "UTWD-umbrella.h"
+
+  export *
+  module * { export * }
+}
+
+module UTWD.Swift {
+  header "UTWD-Swift.h"
+  requires objc
+}
