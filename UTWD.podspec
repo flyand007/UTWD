@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'UTWD'
-  s.version          = '1.0.0'
+  s.version          = '1.0.1'
   s.summary          = 'this component only service own products,Easy to maintain'
 
 # This description is used to generate tags and improve search results.
@@ -25,7 +25,7 @@ Pod::Spec.new do |s|
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'fj' => 'fj' }
    s.source = {
-    :http => 'https://github.com/flyand007/UTWD/releases/download/1.0.0/UTWD_Package.zip'
+    :http => 'https://github.com/flyand007/UTWD/releases/download/1.0.1/UTWD_Package.zip'
   }
   
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
@@ -34,7 +34,6 @@ Pod::Spec.new do |s|
    # ② 声明二进制框架
   s.vendored_frameworks = 'UTWD.xcframework'
 
-  s.source_files = 'UTWD/Classes/**/*'
   
 
     s.dependency 'ConfigCat'
